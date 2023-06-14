@@ -7,16 +7,28 @@
 		<meta charset="utf-8">
 		<script src="https://assets.adobedtm.com/e72b4113c11a/e8ccf65257d7/launch-541e58c5c627.min.js" async></script>
 		<script>
-			var digitalData = digitalData || {};
-			digitalData = {
-				page: {
-					pageName: "Charge Card Application Page 1",
-					siteSection: "Company Section",
-					siteSubsection: "Charge Card",
-					server: "USA Server"
-				},
-			};		
+			var dataLayer = dataLayer || [];
 
+		        var transactionProducts = [
+		            {
+		                'sku': 'DD44',
+		                'name': 'Camiseta',
+		                'category': 'Vestuário',
+		                'price': 11.99,
+		                'quantity': 1
+		            },
+		            {
+		                'sku': 'AA1243544',
+		                'name': 'Meias',
+		                'category': 'Vestuário',
+		                'price': 9.99,
+		                'quantity': 2
+		            }
+		        ];
+		
+		        dataLayer.push({
+		            'transactionProducts': transactionProducts
+		        });
 		</script>
 	</head>
 
