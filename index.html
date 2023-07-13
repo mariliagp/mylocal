@@ -70,28 +70,21 @@
 			<li>Preços espeiais</li>
 			<li>Muitas cidades</li>
 
-			<button onClick="window.location.href='https://www.google.com/';">  
-   				Clique Aqui!
-				<script>
-					window.adobeDataLayer.push({
-						event:  "click",
-						descriptionClick: "clic en 'he leido y acepto'",
-						producto: {
-						tipo: "Personas",
-						categoria: "Producto Digital",
-						seccion: "Pre Registro",
-						appStep: "App Step 1",
-						appName: "cuenta_ahorro_pre_registro",
-						producto: "cuenta_ahorro",
-						detalle: "App Step 1.1 - Clic en 'he leido y acepto'",
-						pasoOperativa: "exemple click 1",
-						infoOperativa: "exemple click 2",
+			<a href="#" name="button1" onclick="window.adobeDataLayer.push({
+				event:  'click',
+				descriptionClick: 'clic en he leido y acepto',
+				producto: {
+					tipo: 'Personas',
+						categoria: 'Producto Digital',
+						seccion: 'Pre Registro',
+						appStep: 'App Step 1',
+						appName: 'cuenta_ahorro_pre_registro',
+						producto: 'cuenta_ahorro',
+						detalle: 'App Step 1.1 - Clic en he leido y acepto',
+						pasoOperativa: 'exemple click 1',
+						infoOperativa: 'exemple click 2'
 						}
-						
-					});
-					
-				</script>
-			</button> 
+			});" >Clique Aqui</a>
 			
 		</ol>
 
