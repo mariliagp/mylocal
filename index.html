@@ -61,7 +61,21 @@
   <section class="banner">
     <h1>Test Saba</h1>
     <p>Pré Registro</p>
-    <a class="button_a" href="./step1.html">Empezar →</a>
+    <a class="button_a" href="./step1.html" onclick="window.adobeDataLayer.push({
+				event:  'click',
+				descriptionClick: 'clic en he leido y acepto',
+				producto: {
+					tipo: 'Personas',
+						categoria: 'Producto Digital',
+						seccion: 'Pre Registro',
+						appStep: 'App Step 1',
+						appName: 'cuenta_ahorro_pre_registro',
+						producto: 'cuenta_ahorro',
+						detalle: 'App Step 1.1 - Clic en he leido y acepto',
+						pasoOperativa: 'exemple click 1',
+						infoOperativa: 'exemple click 2'
+						}
+			});">Empezar →</a>
   </section><!-- .banner -->
 </body>
 </html>
