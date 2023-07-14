@@ -31,12 +31,12 @@
 					      "tipo":"Personas",
 					      "categoria":"Producto Digital",
 					      "seccion":"Home",
-					      "appStep":"App Step Home",
+					      "appStep":"App Step 1",
 					      "appName":"cuenta_ahorro_pre_registro",
 					      "producto":"cuenta_ahorro",
 					      "detalle":"home",
-					      "pasoOperativa":"App Step 0",
-					      "infoOperativa":"App Step 0 - Home"
+					      "pasoOperativa":"App Step 1",
+					      "infoOperativa":"App Step 1 - Inicio Pre-registro"
 					   },
 					   "marketing":{
 					      "utmSource":"Valor rescatado de la URL",
@@ -59,40 +59,32 @@
   <!--nada aqui -->
 </header>
   <section class="banner">
-    <h1>Test Saba</h1>
+    <h1>Step 1</h1>
     <p>Pré Registro</p>
 	  
-    <a class="button_a" href="#step1" onclick= "window.adobeDataLayer.push({
+    <a class="button_a" href="#step2" onclick= "window.adobeDataLayer.push({
 				event:  'click',
 				descriptionClick: 'clic en he leido y acepto',
 				producto: {
 					tipo: 'Personas',
 						categoria: 'Producto Digital',
 						seccion: 'Pre Registro',
-						appStep: 'App Step 1',
+						appStep: 'App Step 1.1',
 						appName: 'cuenta_ahorro_pre_registro',
 						producto: 'cuenta_ahorro',
-						detalle: 'App Step 1.1 - Clic en he leido y acepto',
-						pasoOperativa: 'exemple click 1',
-						infoOperativa: 'exemple click 2'
+						detalle: 'App Step 1.1 - Clic en Empezar',
+						pasoOperativa: 'App Step 1.1',
+						infoOperativa: 'App Step 1.1 - Clic en Empezar'
 						}
 			});">Empezar →</a>
 	</section><!-- .banner -->
 
 	<section class="banner">
-		<div id="step1">
-		    <h1>Step 1</h1>
-		    <p>Pré Registro</p>
-		    <a class="button_a" href="#step2"> Next Step →</a>
-		</div>
-	</section>
-		<section class="banner">
 		<div id="step2">
 		    <h1>Step 2</h1>
 		    <p>Pré Registro</p>
 		    <a class="button_a" href="#step3"> Next Step →</a>
 		</div>
-	</section>
 	</section>
 		<section class="banner">
 		<div id="step3">
@@ -118,11 +110,11 @@
 		</div>
 	</section>
 	</section>
-	<section class="banner">
+		<section class="banner">
 		<div id="step6">
 		    <h1>Step 6</h1>
 		    <p>Pré Registro</p>
-		    <a class="button_a" href="#"> Finalizado</a>
+		    <a class="button_a" href="#"> Finalizado →</a>
 		</div>
 	</section>
 </body>
