@@ -125,7 +125,21 @@
 			  </script>
 			
 		    <p>Pré Registro</p>
-		    <a class="button_a" href="#step3"> Next Step →</a>
+		    <a class="button_a" href="#step3" onclick= "window.adobeDataLayer.push({
+				event:  'click',
+				descriptionClick: 'clic en he leido y acepto',
+				producto: {
+					tipo: 'Personas',
+						categoria: 'Producto Digital',
+						seccion: 'Pre Registro',
+						appStep: 'App Step 2.1',
+						appName: 'cuenta_ahorro_pre_registro',
+						producto: 'cuenta_ahorro',
+						detalle: 'App Step 1.1 - Clic en Empezar',
+						pasoOperativa: 'App Step 2.1',
+						infoOperativa: 'App Step 2.1 - Clic en Continuar'
+						}
+			});"> Continuar →</a>
 		</div>
 	</section>
 		<section class="banner">
