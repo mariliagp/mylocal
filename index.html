@@ -63,7 +63,260 @@
 </head>
 <body>
 <header>
-  <!--nada aqui -->
+  <!--codigo vini -->
+	<html>
+    <head>
+        <script type="text/javascript">
+            (function() {
+              var didInit = false;
+              function initMunchkin() {
+                if(didInit === false) {
+                  didInit = true;
+                  Munchkin.init('271-ZJD-911');
+                }
+              }
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = '//munchkin.marketo.net/munchkin.js';
+              s.onreadystatechange = function() {
+                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                  initMunchkin();
+                }
+              };
+              s.onload = initMunchkin;
+              document.getElementsByTagName('head')[0].appendChild(s);
+            })();
+        </script>
+        <script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script>
+        <script type="text/javascript">
+            function waitForElm(elm) {
+                return new Promise(resolve => {
+                    if (elm) {
+                        return resolve(elm);
+                    }
+
+                    const observer = new MutationObserver(mutations => {
+                        if (elm) {
+                            resolve(elm);
+                            observer.disconnect();
+                        }
+                    });
+
+                    observer.observe(document.body, {
+                        childList: true,
+                        subtree: true
+                    });
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function(_e){
+            
+                // Get and declare all the fields for the first step (name, firstname and lastname)
+                var nombreField;
+                var nombreFieldValue;
+
+                var primerApellidoField;
+                var primerApellidoFieldValue;
+
+                var segundoApellidoField;
+                var segundoApellidoFieldValue;
+
+                // Declare all the variables for the second (phone number) step
+
+                var celularField;
+                var celularFieldValue;
+
+                // Declare all the variables for the third (confirmar celular) step
+                var continuarConfirmarCelularBtn;
+
+                // Declare all the variables for the fourth (email) step
+
+                var emailField;
+                var emailFieldValue;
+                var continuarEmailBtn;
+
+                // Declare all the variables for the fifth (confirmar email) step
+                var continuarConfirmarEmailBtn;
+
+                // Declare all the variables for the sixth (contrasena) step
+                var confirmarContrasenaBtn;
+
+                nombreField = document.getElementById("name");
+
+                primerApellidoField = document.getElementById("firstSurname");
+
+                segundoApellidoField = document.getElementById("secondSurname");
+
+                continuarNombreBtn = document.getElementById("formFullname").querySelector('#nextStep');
+
+                continuarNombreBtn.onclick = function(event) {
+                    
+                    event.preventDefault();
+
+                    nombreFieldValue = nombreField.value
+                    primerApellidoFieldValue = primerApellidoField.value
+                    segundoApellidoFieldValue = segundoApellidoField.value
+
+                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1005, function (form){
+                        form.onSuccess(function(vals, thanksURL){
+                            return false;
+                        });
+
+                        form.addHiddenFields(
+                        {
+                            "FirstName":nombreFieldValue, 
+                            "PrimerApellido":primerApellidoFieldValue,
+                            "SegundoApellido":segundoApellidoFieldValue,
+                            "Email":nombreFieldValue+primerApellidoFieldValue+segundoApellidoFieldValue+'@tempsbdll.com'
+                        });
+
+                        form.submit();
+                    });
+
+                    waitForElm(document.getElementById("phoneNumber")).then((elm) => {
+                        celularField = document.getElementById("phoneNumber");
+
+                        waitForElm(document.querySelectorAll('button')[1]).then((elm) => {
+                            continuarCelularBtn = document.querySelectorAll('button')[1]
+
+                            continuarCelularBtn.onclick = function(_event) {
+
+                                celularFieldValue = celularField.value
+
+                                if (celularFieldValue){
+
+                                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1006, function (form){
+                                        form.onSuccess(function(vals, thanksURL){
+                                            return false;
+                                        });
+
+                                        form.addHiddenFields(
+                                            {
+                                                "MobilePhone":celularFieldValue,
+                                                "Email":nombreFieldValue+primerApellidoFieldValue+segundoApellidoFieldValue+'@tempsbdll.com'
+                                            });
+
+                                        form.submit();
+
+                                    });
+                                }
+
+                                waitForElm(document.querySelectorAll('button')[2]).then((elm) => {
+                                    continuarConfirmarCelularBtn = document.querySelectorAll('button')[2];
+
+                                    continuarConfirmarCelularBtn.onclick = function(_event) {
+
+                                        MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1008, function (form){
+                                            form.onSuccess(function(vals, thanksURL){
+                                                return false;
+                                            });
+
+                                            form.addHiddenFields(
+                                                {
+                                                    "Email":nombreFieldValue+primerApellidoFieldValue+segundoApellidoFieldValue+'@tempsbdll.com'
+                                                });
+
+                                            form.submit();
+
+                                        });
+
+                                        waitForElm(document.getElementById("email")).then((elm) => {
+
+                                            emailField = document.getElementById("email");
+
+                                            waitForElm(document.getElementById("nextStep")).then((elm) => {
+                                                continuarEmailBtn = document.getElementById("nextStep");
+
+                                                continuarEmailBtn.onclick = function(_event) {
+
+                                                    emailFieldValue = emailField.value
+
+                                                    if (emailFieldValue){
+
+                                                        MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1009, function (form){
+                                                            form.onSuccess(function(vals, thanksURL){
+                                                                return false;
+                                                            });
+
+                                                            form.addHiddenFields(
+                                                                {
+                                                                "FirstName":nombreFieldValue,
+                                                                "PrimerApellido":primerApellidoFieldValue,
+                                                                "SegundoApellido":segundoApellidoFieldValue,
+                                                                "MobilePhone":celularFieldValue,
+                                                                "Email":nombreFieldValue+primerApellidoFieldValue+segundoApellidoFieldValue+'@tempsbdll.com',
+                                                                "TempEmail": emailFieldValue
+                                                                });
+
+                                                            form.submit();
+
+                                                        });
+                                                    }
+
+                                                    waitForElm(document.getElementById("nextStep")).then((elm) => {
+                                                        continuarConfirmarEmailBtn = document.getElementById("nextStep");;
+                                                        continuarConfirmarEmailBtn.onclick = function(_event) {
+
+                                                            MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1010, function (form){
+                                                                form.onSuccess(function(vals, thanksURL){
+                                                                    return false;
+                                                                });
+
+                                                                form.addHiddenFields(
+                                                                    {
+                                                                    "Email":emailFieldValue,
+                                                                    }
+                                                                );
+                                                                form.submit();
+
+                                                            });
+
+                                                            waitForElm(document.getElementById("nextStep")).then((elm) => {
+                                                                confirmarContrasenaBtn = document.getElementById("nextStep");;
+
+                                                                confirmarContrasenaBtn.onclick = function(_event) {
+
+                                                                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1011, function (form){
+                                                                        form.onSuccess(function(vals, thanksURL){
+                                                                            return false;
+                                                                        });
+
+                                                                        form.addHiddenFields(
+                                                                            {
+                                                                            "Email":emailFieldValue,
+                                                                            }
+                                                                        );
+                                                                        form.submit();
+
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <form id="mktoForm_1005"></form>
+        <form id="mktoForm_1006"></form>
+        <form id="mktoForm_1008"></form>
+        <form id="mktoForm_1009"></form>
+        <form id="mktoForm_1010"></form>
+        <form id="mktoForm_1011"></form>
+    </body>
+</html>
+	
 </header>
   <section class="banner">
     <h1>Step 1</h1>
