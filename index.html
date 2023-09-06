@@ -29,7 +29,7 @@
 	
 	<script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script> 
 	<!-- inicio código de/para GFT Marketo-->
-<script type="text/javascript">
+        <script type="text/javascript">
             function waitForElm(elm) {
                 return new Promise(resolve => {
                     if (elm) {
@@ -95,10 +95,12 @@
 					});
 
 					waitForElm(document.getElementById("phoneNumber")).then((elm) => {
-						celularFieldValue = document.getElementById("phoneNumber").value;							
-						continuarCelularBtn = document.getElementById("phoneNumber").querySelector('#nextStep');
+
+                        continuarCelularBtn = document.getElementById("phoneNumber").querySelector('#nextStep');
 
 						continuarCelularBtn.onclick = function(_event) {
+
+                            celularFieldValue = document.getElementById("phoneNumber").value;							
 
 							if (celularFieldValue){
 
@@ -116,12 +118,12 @@
 
 							waitForElm(document.getElementById("email")).then((elm) => {
 
-								emailFieldValue = document.getElementById("email").value;
-
 								waitForElm(document.getElementById("nextStep")).then((elm) => {
 									continuarEmailBtn = document.getElementById("nextStep");
 
 									continuarEmailBtn.onclick = function(_event) {
+
+                                        emailFieldValue = document.getElementById("email").value;
 
 										if (emailFieldValue){
 
