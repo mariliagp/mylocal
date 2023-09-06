@@ -70,12 +70,13 @@
                 // Declare all the variables for the fifth (confirmar email) step
                 var continuarConfirmarEmailBtn;
 
-                nombreFieldValue = document.getElementById("name").value;
-                primerApellidoField = document.getElementById("firstSurname").value;
-                segundoApellidoField = document.getElementById("secondSurname").value;
                 continuarNombreBtn = document.getElementById("formFullname").querySelector('#nextStep');
 
                 continuarNombreBtn.onclick = function(event) {
+
+                    nombreFieldValue = document.getElementById("name").value;
+                    primerApellidoField = document.getElementById("firstSurname").value;
+                    segundoApellidoField = document.getElementById("secondSurname").value;
                     
 					event.preventDefault();
 
