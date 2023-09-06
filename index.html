@@ -102,9 +102,18 @@
   <section class="banner">
     <h1>Step 1</h1>
     <p>Pré Registro</p>
-   <!-------inicio formularios teste ------>
+   <!-------inicio formulario------>
    <p><form id="mktoForm_1005" style="display: none"></form></p>
-    <!------fim formulários teste ------->  
+   <p><form>
+	  <label for="name">Nombre:</label><br>
+	  <input type="text" id="name" name="name"><br>
+	  <label for="firstSurname">Primer Apellido:</label><br>
+	  <input type="text" id="firstSurname" name="firstSurname"><br>
+	  <label for="secondSurname">Segundo Apellido:</label><br>
+	  <input type="text" id="secondSurname" name="secondSurname">
+	  <input type="submit" id="nextStep" value="Continuar">
+    </form></p>
+    <!------fim formulário------->  
     <a class="button_a" href="#step2" onclick= "window.adobeDataLayer.push({
 				event:  'click',
 				descriptionClick: 'clic en empezar',
@@ -126,7 +135,14 @@
 		<div id="step2">
 		    <h1>Step 2</h1>
 		    <p>Pré Registro</p>
-		    <p><form id="mktoForm_1006" style="display: none"></form></p>	
+		    <!-------inicio formulario------>
+		    <p><form id="mktoForm_1006" style="display: none"></form></p>
+	            <p><form>
+			  <label for="phoneNumber">Número de teléfono móvil:</label><br>
+			  <input type="text" id="phoneNumber" name="phoneNumber"><br>
+			  <input type="submit" id="nextStep" value="Continuar">
+                   </form></p>
+		    <!-------inicio formulario------>
 		    <a class="button_a" href="#step3" onclick= "window.adobeDataLayer.push({
 				event:  'click',
 				descriptionClick: 'clic en continuar',
@@ -148,7 +164,14 @@
 		<div id="step3">
 		    <h1>Step 3</h1>
 		    <p>Pré Registro</p>
+		    <!-------inicio formulario------>
 		    <p><form id="mktoForm_1009" style="display: none"></form></p>
+		    <p><form>
+			  <label for="email">Dirección de email:</label><br>
+			  <input type="text" id="email" name="email"><br>
+			  <input type="submit" id="nextStep" value="Continuar">
+                    </form></p>
+		    <!-------fim formulario------>
 		    <a class="button_a" href="#step4" onclick= "window.adobeDataLayer.push({
 				event:  'click',
 				descriptionClick: 'clic en continuar',
@@ -171,7 +194,14 @@
 		<div id="step4">
 		    <h1>Step 4</h1>
 		    <p>Pré Registro</p>
+		    <!-------inicio formulario------>
 	            <p><form id="mktoForm_1010" style="display: none"></form></p>
+		    <p><form>
+			  <label for="email">Correo Electrónico:</label><br>
+			  <input type="text" id="email" name="email"><br>
+			  <input type="submit" value="Continuar">
+                    </form></p>
+		    <!-------fim formulario------>
 		    <a class="button_a" href="#step5"  onclick= "window.adobeDataLayer.push({
 				event:  'click',
 				descriptionClick: 'clic en continuar',
