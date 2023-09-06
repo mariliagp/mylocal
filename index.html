@@ -1,119 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  	<script type="text/javascript">
-            function waitForElm(elm) {
-                return new Promise(resolve => {
-                    if (elm) {
-                        return resolve(elm);
-                    }
+  	<script src="https://assets.adobedtm.com/e72b4113c11a/899cc94cf838/launch-fd1b9988e7c8-development.min.js" async></script>
+  	<!--<script src="https://assets.adobedtm.com/dedcc86548e8/6f5f4aa34959/launch-f30674b659c5-development.min.js" async></script>-->
+ 	<!---script marketo-->
+	<script type="text/javascript">
+	    (function() {
+	      var didInit = false;
+	      function initMunchkin() {
+		if(didInit === false) {
+		  didInit = true;
+		  Munchkin.init('271-ZJD-911');
+		}
+	      }
+	      var s = document.createElement('script');
+	      s.type = 'text/javascript';
+	      s.async = true;
+	      s.src = '//munchkin.marketo.net/munchkin.js';
+	      s.onreadystatechange = function() {
+		if (this.readyState == 'complete' || this.readyState == 'loaded') {
+		  initMunchkin();
+		}
+	      };
+	      s.onload = initMunchkin;
+	      document.getElementsByTagName('head')[0].appendChild(s);
+	    })();
+	</script>
 
-                    const observer = new MutationObserver(mutations => {
-                        if (elm) {
-                            resolve(elm);
-                            observer.disconnect();
-                        }
-                    });
-
-                    observer.observe(document.body, {
-                        childList: true,
-                        subtree: true
-                    });
-                });
+	<script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script> 
+	<!-- inicio código de/para GFT Marketo-->
+<script type="text/javascript">
+        (function () {
+            var didInit = false;
+            function initMunchkin() {
+                if (didInit === false) {
+                    didInit = true;
+                    Munchkin.init('271-ZJD-911');
+                }
             }
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//munchkin.marketo.net/munchkin.js';
+            s.onreadystatechange = function () {
+                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                    initMunchkin();
+                }
+            };
+            s.onload = initMunchkin;
+            document.getElementsByTagName('head')[0].appendChild(s);
+        })();
+    </script>
+    <script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script>
 
-            document.addEventListener('DOMContentLoaded', function(_e){
-            
-                // Get and declare all the fields for the first step (name, firstname and lastname)     
-                var nombreFieldValue;
-				var primerApellidoFieldValue;
-				var segundoApellidoFieldValue;
+    <script type="text/javascript">
+        function waitForElm(elm) {
+            return new Promise(resolve => {
+                if (elm) {
+                    return resolve(elm);
+                }
 
-                // Declare all the variables for the second (phone number) step
-				var celularFieldValue;
+                const observer = new MutationObserver(mutations => {
+                    if (elm) {
+                        resolve(elm);
+                        observer.disconnect();
+                    }
+                });
 
-                // Declare all the variables for the third (confirmar celular) step
-                var continuarConfirmarCelularBtn;
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            });
+        }
 
-                // Declare all the variables for the fourth (email) step
-                var emailFieldValue;
-                var continuarEmailBtn;
+        document.addEventListener('DOMContentLoaded', function (_e) {
 
-                continuarNombreBtn = document.getElementById("formFullname").querySelector('#nextStep');
+            // Get and declare all the fields for the first step (name, firstname and lastname)     
+            var nombreFieldValue;
+            var primerApellidoFieldValue;
+            var segundoApellidoFieldValue;
+            var continuarNombreBtn;
 
-                continuarNombreBtn.onclick = function(event) {
+            // Declare all the variables for the second (phone number) step
+            var celularFieldValue;
+            var continuarCelularBtn;
 
-                    nombreFieldValue = document.getElementById("name").value;
-                    primerApellidoFieldValue = document.getElementById("firstSurname").value;
-                    segundoApellidoFieldValue = document.getElementById("secondSurname").value;
-                    
-					event.preventDefault();
+            // Declare all the variables for the fourth (email) step
+            var emailFieldValue;
+            var continuarEmailBtn;
 
-					MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1005, function (formWeb){
-						formWeb.onSuccess(function(vals, thanksURL){
-							return false;
-						});
+            continuarNombreBtn = document.getElementById("formFullname").querySelector('#nextStep');
+            continuarCelularBtn = document.getElementById("formPhoneNumber").querySelector('#nextStep');
+            continuarEmailBtn = document.getElementById("formEmail").querySelector('#nextStep');
 
-						formWeb.addHiddenFields(
-						{
-							"FirstName":nombreFieldValue, 
-							"PrimerApellido":primerApellidoFieldValue,
-							"SegundoApellido":segundoApellidoFieldValue
-						});
-						formWeb.submit();
-					});
-                } //chave inserida para testar a eliminação do wait    
-					//waitForElm(document.getElementById("phoneNumber")).then((elm) => {
+            continuarNombreBtn.onclick = function (event) {
 
-                        continuarCelularBtn = document.getElementById("formPhoneNumber").querySelector('#nextStep');
+                event.preventDefault();
 
-						continuarCelularBtn.onclick = function(event) {
+                nombreFieldValue = document.getElementById("name").value;
+                primerApellidoFieldValue = document.getElementById("firstSurname").value;
+                segundoApellidoFieldValue = document.getElementById("secondSurname").value;
 
-                            celularFieldValue = document.getElementById("phoneNumber").value;							
+                MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1005, function (formWeb) {
+                    formWeb.onSuccess(function (vals, thanksURL) {
+                        return false;
+                    });
 
-							if (celularFieldValue){
+                    formWeb.addHiddenFields(
+                        {
+                            "FirstName": nombreFieldValue,
+                            "PrimerApellido": primerApellidoFieldValue,
+                            "SegundoApellido": segundoApellidoFieldValue
+                        });
+                    formWeb.submit();
+                });
+            };
 
-								MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1006, function (formWeb){
-									formWeb.onSuccess(function(vals, thanksURL){
-										return false;
-									});
-									formWeb.addHiddenFields(
-										{
-											"MobilePhone":celularFieldValue
-										});
-                                    formWeb.submit();
-								});
-							}
-                        } ////chave inserida para testar a eliminação do wait      
-							//waitForElm(document.getElementById("email")).then((elm) => {
+            continuarCelularBtn.onclick = function (event) {
+                celularFieldValue = document.getElementById("phoneNumber").value;
 
-								//waitForElm(document.getElementById("nextStep")).then((elm) => {
-									continuarEmailBtn = document.getElementById("nextStep");
+                if (celularFieldValue) {
 
-									continuarEmailBtn.onclick = function(event) {
+                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1006, function (formWeb) {
+                        formWeb.onSuccess(function (vals, thanksURL) {
+                            return false;
+                        });
+                        formWeb.addHiddenFields(
+                            {
+                                "MobilePhone": celularFieldValue
+                            });
+                        formWeb.submit();
+                    });
+                }
+            };
 
-                                        emailFieldValue = document.getElementById("formEmail").value;
+            continuarEmailBtn.onclick = function (event) {
+                emailFieldValue = document.getElementById("email").value;
 
-										if (emailFieldValue){
+                if (emailFieldValue) {
 
-											MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1009, function (formWeb){
-												formWeb.onSuccess(function(vals, thanksURL){
-													return false;
-												});
-												formWeb.addHiddenFields(
-													{              
-														"Email": emailFieldValue
-													});
-                                                    formWeb.submit();
-											});
-										}
-									}
-								//});
-							//});			
-					//});
-				//}
-            });		                                   
-        </script>
+                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1009, function (formWeb) {
+                        formWeb.onSuccess(function (vals, thanksURL) {
+                            return false;
+                        });
+                        formWeb.addHiddenFields(
+                            {
+                                "Email": emailFieldValue
+                            });
+                        formWeb.submit();
+                    });
+                }
+            };
+        });		                                   
+    </script>              
+
 	<!-- fim código de/para GFT Marketo-->
 	<script>
 		MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1005);
