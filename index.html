@@ -54,25 +54,6 @@
     <script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script>
 
     <script type="text/javascript">
-        function waitForElm(elm) {
-            return new Promise(resolve => {
-                if (elm) {
-                    return resolve(elm);
-                }
-
-                const observer = new MutationObserver(mutations => {
-                    if (elm) {
-                        resolve(elm);
-                        observer.disconnect();
-                    }
-                });
-
-                observer.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                });
-            });
-        }
 
         document.addEventListener('DOMContentLoaded', function (_e) {
 
@@ -250,7 +231,7 @@
 		    <h1>Step 3</h1>
 		    <p>Pré Registro</p>
 		    <!-------inicio formulario------>
-		    <p><form id="mktoForm_1031"></form></p>
+		    <p><form id="mktoForm_1031" style="display: none"></form></p>
 		    <p><form id='formEmail'>
 			  <label for="email">Dirección de email:</label><br>
 			  <input type="text" id="email" name="email"><br>
