@@ -30,130 +30,118 @@
 	<script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script> 
 	<!-- inicio código de/para GFT Marketo-->
 <script type="text/javascript">
-        (function () {
-            var didInit = false;
-            function initMunchkin() {
-                if (didInit === false) {
-                    didInit = true;
-                    Munchkin.init('271-ZJD-911');
-                }
-            }
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = '//munchkin.marketo.net/munchkin.js';
-            s.onreadystatechange = function () {
-                if (this.readyState == 'complete' || this.readyState == 'loaded') {
-                    initMunchkin();
-                }
-            };
-            s.onload = initMunchkin;
-            document.getElementsByTagName('head')[0].appendChild(s);
-        })();
-    </script>
-    <script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script>
-
-    <script type="text/javascript">
-        function waitForElm(elm) {
-            return new Promise(resolve => {
-                if (elm) {
-                    return resolve(elm);
-                }
-
-                const observer = new MutationObserver(mutations => {
-                    if (elm) {
-                        resolve(elm);
-                        observer.disconnect();
-                    }
-                });
-
-                observer.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                });
-            });
+    function waitForElm(elm) {
+      return new Promise(resolve => {
+        if (elm) {
+          return resolve(elm);
         }
 
-        document.addEventListener('DOMContentLoaded', function (_e) {
+        const observer = new MutationObserver(mutations => {
+          if (elm) {
+            resolve(elm);
+            observer.disconnect();
+          }
+        });
 
-            // Get and declare all the fields for the first step (name, firstname and lastname)     
-            var nombreFieldValue;
-            var primerApellidoFieldValue;
-            var segundoApellidoFieldValue;
-            var continuarNombreBtn;
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      });
+    }
 
-            // Declare all the variables for the second (phone number) step
-            var celularFieldValue;
-            var continuarCelularBtn;
+    document.addEventListener('DOMContentLoaded', function (_e) {
 
-            // Declare all the variables for the fourth (email) step
-            var emailFieldValue;
-            var continuarEmailBtn;
+      // Get and declare all the fields for the first step (name, firstname and lastname)     
+      var nombreFieldValue;
+      var primerApellidoFieldValue;
+      var segundoApellidoFieldValue;
+      var continuarNombreBtn;
 
-            continuarNombreBtn = document.getElementById('nextStep1');
-            continuarCelularBtn = document.getElementById('nextStep2');
-            continuarEmailBtn = document.getElementById('nextStep3');
+      // Declare all the variables for the second (phone number) step
+      var celularFieldValue;
+      var continuarCelularBtn;
 
-            continuarNombreBtn.onclick = function (event) {
+      // Declare all the variables for the fourth (email) step
+      var emailFieldValue;
+      var continuarEmailBtn;
 
-                event.preventDefault();
+      continuarNombreBtn = document.getElementById("nextStep1");
 
-                nombreFieldValue = document.getElementById("name").value;
-                primerApellidoFieldValue = document.getElementById("firstSurname").value;
-                segundoApellidoFieldValue = document.getElementById("secondSurname").value;
+      continuarNombreBtn.onclick = function (event) {
 
-                MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1005, function (formWeb) {
-                    formWeb.onSuccess(function (vals, thanksURL) {
-                        return false;
-                    });
+        event.preventDefault();
 
-                    formWeb.addHiddenFields(
-                        {
-                            "FirstName": nombreFieldValue,
-                            "PrimerApellido": primerApellidoFieldValue,
-                            "SegundoApellido": segundoApellidoFieldValue
-                        });
-                    formWeb.submit();
+        nombreFieldValue = document.getElementById("name").value;
+        primerApellidoFieldValue = document.getElementById("firstSurname").value;
+        segundoApellidoFieldValue = document.getElementById("secondSurname").value;
+
+        MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1005, function (form) {
+          form.onSuccess(function (vals, thanksURL) {
+            return false;
+          });
+
+          form.addHiddenFields(
+            {
+              "FirstName": nombreFieldValue,
+              "PrimerApellido": primerApellidoFieldValue,
+              "SegundoApellido": segundoApellidoFieldValue
+            });
+          form.submit();
+        });
+
+        waitForElm(document.getElementById("phoneNumber")).then((elm) => {
+
+          continuarCelularBtn = document.getElementById("nextStep2");
+
+          continuarCelularBtn.onclick = function (event) {
+
+            celularFieldValue = document.getElementById("phoneNumber").value;
+
+            if (celularFieldValue) {
+
+              MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1006, function (form) {
+                form.onSuccess(function (vals, thanksURL) {
+                  return false;
                 });
-            };
 
-            continuarCelularBtn.onclick = function (event) {
-                celularFieldValue = document.getElementById("phoneNumber").value;
+                form.addHiddenFields(
+                  {
+                    "MobilePhone": celularFieldValue
+                  });
+                form.submit();
+              });
+            }
 
-                if (celularFieldValue) {
+            waitForElm(document.getElementById("email")).then((elm) => {
 
-                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1006, function (formWeb) {
-                        formWeb.onSuccess(function (vals, thanksURL) {
-                            return false;
-                        });
-                        formWeb.addHiddenFields(
-                            {
-                                "MobilePhone": celularFieldValue
-                            });
-                        formWeb.submit();
-                    });
-                }
-            };
+              continuarEmailBtn = document.getElementById("nextStep3");
 
-            continuarEmailBtn.onclick = function (event) {
+              continuarEmailBtn.onclick = function (event) {
+
                 emailFieldValue = document.getElementById("email").value;
 
                 if (emailFieldValue) {
 
-                    MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1009, function (formWeb) {
-                        formWeb.onSuccess(function (vals, thanksURL) {
-                            return false;
-                        });
-                        formWeb.addHiddenFields(
-                            {
-                                "Email": emailFieldValue
-                            });
-                        formWeb.submit();
+                  MktoForms2.loadForm("//271-ZJD-911.mktoweb.com", "271-ZJD-911", 1009, function (form) {
+                    form.onSuccess(function (vals, thanksURL) {
+                      return false;
                     });
+
+                    form.addHiddenFields(
+                      {
+                        "Email": emailFieldValue
+                      });
+                    form.submit();
+                  });
                 }
-            };
-        });		                                   
-    </script>              
+              }
+            });
+          }
+        });
+      }
+    });		                                   
+  </script>  
 
 	<!-- fim código de/para GFT Marketo-->
 	<script>
