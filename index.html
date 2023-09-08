@@ -29,7 +29,7 @@
 
 	<script src="//271-ZJD-911.mktoweb.com/js/forms2/js/forms2.min.js"></script> 
 	<!-- inicio código de/para GFT Marketo-->
-<script type="text/javascript">
+  <script type="text/javascript">
     function waitForElm(elm) {
       return new Promise(resolve => {
         if (elm) {
@@ -90,9 +90,9 @@
           form.submit();
         });
 
-        continuarCelularBtn = document.getElementById("nextStep2");
-
         waitForElm(document.getElementById("phoneNumber")).then((elm) => {
+
+          continuarCelularBtn = document.getElementById("nextStep2");
 
           continuarCelularBtn.onclick = function (event) {
 
@@ -113,9 +113,9 @@
               });
             }
 
-            continuarEmailBtn = document.getElementById("nextStep3");
-
             waitForElm(document.getElementById("email")).then((elm) => {
+
+              continuarEmailBtn = document.getElementById("nextStep3");
 
               continuarEmailBtn.onclick = function (event) {
 
@@ -141,7 +141,7 @@
         });
       }
     });		                                   
-  </script>     
+  </script>
 
 	<!-- fim código de/para GFT Marketo-->
 	<script>
