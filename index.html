@@ -216,20 +216,17 @@
         </form></p>
 		    <!-------fim formulario------>
 		    <a class="button_a" href="#step3" onclick= "window.adobeDataLayer.push({
-				event:  'click',
-				descriptionClick: 'clic en continuar',
-				producto: {
-					tipo: 'Personas',
-						categoria: 'Producto Digital',
-						seccion: 'Pre Registro',
-						appStep: 'App Step 2.1 (test page)',
-						appName: 'cuenta_ahorro_pre_registro',
-						producto: 'cuenta_ahorro',
-						detalle: 'App Step 2.1 - Clic en Continuar (test page)',
-						pasoOperativa: '2.1',
-						infoOperativa: '2.1 - Clic en Continuar'
-						}
-			});"> Continuar →</a>
+					   event:'pageLoad',
+					   pageInstanceID:'',
+					   page:{
+					      pageInfo:{
+						 pageName: 'Home',
+						 URL: window.location.href,
+						 referringURL:''
+					      }
+					   }
+			
+			       	 });"> Continuar →</a>
 		</div>
 	</section>
 		<section class="banner">
