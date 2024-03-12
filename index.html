@@ -154,14 +154,14 @@
 					      "utmTerm":""
 					   },
 					   "user":{
-					      "userID":"userID",
-					      "userStatus":"no logueado",
-					      "sexo":"feminino"
+					      "userID":"userID_test_martech",
+					      "userStatus":"no_logueado_test_martech",
+					      "sexo":"feminino_tst"
 					   },
 	    			           "error": {
 						"errorCode": "",
 						"errorType": null,
-						"errorPage": "Test Envio Datalayer"
+						"errorPage": "feminino_test_martech"
 					   }
 			
 			       	 });
@@ -187,17 +187,22 @@
     <!------fim formulário------->  
     <a class="button_a" href="#step2" onclick= "window.adobeDataLayer.push({
 				event:  'click',
-				descriptionClick: 'clic en empezar',
-				producto: {
-					tipo: 'Personas',
-						categoria: 'Producto Digital',
-						seccion: 'Pre Registro',
-						appStep: 'App Step 1.1 (test page)',
-						appName: 'cuenta_ahorro_pre_registro',
-						producto: 'cuenta_ahorro',
-						detalle: 'App Step 1.1 - Clic en Empezar (test page)',
-						pasoOperativa: '1.1',
-						infoOperativa: '1.1 - Clic en Empezar'
+				descriptionClick: 'Teste KYC',
+				kyc: {
+					        actividadEconomica: 'Servicios profesionales, cientificos y tecnicos',
+						actividadEmpresarial: 'true',
+						autorizoRecibirPublicidad: 'true',
+						cargo: 'Directivo',
+						ingresosMensuales: '$30,000.00 a $44,999.99',
+						montosDepositosMes: '$1,000.00 a $9,000.00',
+						montosRetirosMes: '$1,000.00 a $9,000.00',
+						numeroDepositosMes: 'De 4 a 10 ',
+						numeroRetirosMes: 'De 4 a 10 ',
+						ocupacion: 'Empleado privado',
+						origenRecursos: 'Sueldo',
+						politicamenteExpuesto: 'false',
+						residenciaFiscal: 'Canada',
+						residenciaFiscalPais: 'Canada'
 						}
 			});">Empezar →</a>
 	</section><!-- .banner -->
